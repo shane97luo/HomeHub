@@ -1,0 +1,12 @@
+WARNING: The script cpuinfo.exe is installed in 'C:\Users\ShaneLuo\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\Scripts' which is not on PATH.                                                                                        
+  Consider adding this directory to PATH or, if you prefer to suppress this warning, use --no-warn-script-location.                                                                                   
+  WARNING: The script isympy.exe is installed in 'C:\Users\ShaneLuo\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\Scripts' which is not on PATH.                                                                                         
+  Consider adding this directory to PATH or, if you prefer to suppress this warning, use --no-warn-script-location.                                                                                   
+  WARNING: The scripts fonttools.exe, pyftmerge.exe, pyftsubset.exe and ttx.exe are installed in 'C:\Users\ShaneLuo\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\Scripts' which is not on PATH.                                         
+  Consider adding this directory to PATH or, if you prefer to suppress this warning, use --no-warn-script-location.                                                                                   
+  WARNING: The script normalizer.exe is installed in 'C:\Users\ShaneLuo\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\Scripts' which is not on PATH.                                                                                     
+  Consider adding this directory to PATH or, if you prefer to suppress this warning, use --no-warn-script-location.                                                                                   
+  WARNING: The script tqdm.exe is installed in 'C:\Users\ShaneLuo\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\Scripts' which is not on PATH.                                                                                           
+  Consider adding this directory to PATH or, if you prefer to suppress this warning, use --no-warn-script-location.  
+
+  
