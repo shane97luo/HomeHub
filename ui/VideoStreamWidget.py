@@ -2,9 +2,10 @@ from PyQt6.QtWidgets import QVBoxLayout, QWidget, QLabel
 from PyQt6.QtGui import QImage, QPixmap
 
 import cv2
-import ffmpeg
 import numpy as np
-import sys
+
+# import ffmpeg
+# import sys
 
 
 class VideoStreamWidget(QWidget):

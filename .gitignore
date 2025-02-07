@@ -1,8 +1,10 @@
 
-predict/__pycache__/*
-predict/__pycache__
-predict/__pycache__/predict_image.cpython-311.pyc
+# predict/__pycache__/*
+# predict/__pycache__
+# predict/__pycache__/predict_image.cpython-311.pyc
 
-ui/__pycache__/*
+# ui/__pycache__/*
 
-video/__pycache__/*
+# video/__pycache__/*
+
+__pycache__/

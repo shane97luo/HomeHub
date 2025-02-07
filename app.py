@@ -1,4 +1,5 @@
-from PyQt6.QtWidgets import QApplication, QWidget, QMainWindow
+from PyQt6.QtWidgets import QApplication  # , QWidget, QMainWindow
+
 from PyQt6.QtCore import QTimer, QThread, pyqtSignal, Qt, QObject
 
 import cv2
@@ -12,6 +13,11 @@ from ui.MainWindow import MainWindow
 from ui.VideoStreamWidget import VideoStreamWidget
 from video.camera import Camera
 from predict.predict_image import Predict
+
+from ui.WebView import WebView
+
+from ui.menu_bar import MenuManager
+from actions.menu_action_handle import ActionsHandler
 
 
 class VideoStream(QThread):
@@ -31,44 +37,35 @@ class VideoStream(QThread):
         try:
             self.cap = cv2.VideoCapture(self.video_url)
             if not self.cap.isOpened():
-                print("Error: Cannot open camera.")
+                print("Error: Cannot open video  stream.")
                 return
             while self.running:
                 ret, frame = self.cap.read()
                 if not ret:
-                    print("Error: Cannot open camera.")
+                    print("Error: Cannot open  video  stream.")
                     self.cap.release()
                     self.cap = cv2.VideoCapture(self.video_url)
                     continue
 
                 frame = np.array(frame)
 
-                result_image, _ = self.prodict.predict_and_detect(
-                    self.prodict.model, frame, classes=[], conf=0.5
-                )
+                begin_t = time.perf_counter()
 
-                self.signalFrame.emit(result_image)
-                # self.signalFrame.emit(frame)
+                # pridict
+                # result_image, _ = self.prodict.predict_and_detect(
+                #     self.prodict.model, frame, classes=[], conf=0.5
+                # )
+                end_t = time.perf_counter()
+
+                # print("predict time:", (end_t - begin_t))
+                # self.signalFrame.emit(result_image)
+                self.signalFrame.emit(frame)
+
         except Exception as e:
             print(f"Error occurred while opening video source: {e}")
         finally:
             if self.cap is not None:
                 self.cap.release()
-
-    # def capture_img(self):
-
-    #     if not self.cap.isOpened():
-    #         print("Error: Cannot open camera.")
-    #         self.cap.release()
-    #         self.cap = cv2.VideoCapture(self.rtmp_url)
-    #         return
-    #     ret, frame = self.cap.read()
-    #     if not ret:
-    #         print("Error: Cannot open camera.")
-    #         # self.cap = cv2.VideoCapture(rtmp_url)
-
-    #         return
-    #     frame = np.array(frame)
 
 
 if __name__ == "__main__":
@@ -76,8 +73,17 @@ if __name__ == "__main__":
 
     window = MainWindow()
 
+    # 创建菜单栏
+    action_handler = ActionsHandler(window)
+
+    menu_manger = MenuManager(window, action_handler)
+
+    window.setMenuBar(menu_manger.menuBar())
+
     camera = Camera()
-    rtmp_url = "rtmp://127.0.0.1:1935/live/obs/"
+    # rtmp_url = "rtmp://127.0.0.1:1935/live/obs/"
+    # rtmp_url = "rtmp://10.255.255.254:1935/live/obs/"
+    rtmp_url = "rtmp://172.26.222.211:1935/live/obs/"
 
     camera.pushStream(rtmp_url)
     camera.signalFrame.connect(window.updateOriFrame)

@@ -19,6 +19,12 @@ class MainWindow(QMainWindow):
 
         self.setWindowTitle("Monitor System")
 
+        # # 创建菜单栏
+        # menubar = create_menu_bar(self)
+
+        # action_handler = ActionsHandler(self)
+        # self.setMenuBar(menubar)
+
         self.central_widget = QWidget()
         self.setCentralWidget(self.central_widget)
         # 创建一个垂直布局
