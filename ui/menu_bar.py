@@ -56,7 +56,9 @@ class MenuManager:
 
         # 创建“打开摄像头”菜单项
         open_video_action = QAction("打开视频", self.main_window)
-        open_video_action.triggered.connect(lambda: print("执行打开视频操作"))
+
+        # action_video_open
+        open_video_action.triggered.connect(self.action_handler.action_video_open)
         video_menu.addAction(open_video_action)
         self.action_map["video_open"] = open_video_action
 
@@ -77,5 +79,19 @@ class MenuManager:
         push_stream_action.triggered.connect(lambda: print("执行推流操作"))
         video_menu.addAction(push_stream_action)
         self.action_map["video_push"] = push_stream_action
+
+        # 创建“帮助”菜单
+        help_menu = QMenu("帮助", self.main_window)
+        self.menubar.addMenu(help_menu)
+
+        help_action = QAction("帮助", self.main_window)
+        help_action.triggered.connect(self.action_handler.action_help)
+        help_menu.addAction(help_action)
+        self.action_map["help"] = help_action
+
+        help_doc_action = QAction("文档", self.main_window)
+        help_doc_action.triggered.connect(self.action_handler.action_doc)
+        help_menu.addAction(help_doc_action)
+        self.action_map["help_doc"] = help_doc_action
 
         # return menubar
